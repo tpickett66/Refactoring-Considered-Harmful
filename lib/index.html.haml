@@ -17,6 +17,18 @@
     %link{ rel: 'apple-touch-icon', href: 'apple-touch-icon.png' }
 
   %body.impress-not-supported
+    .fallback-message
+      %p
+        Your browser
+        %b doesn't support all of the features required
+        by impress.js, so you are presented with a simplified version of this presentation.
+      %p
+        For the best experience please use the latest version of Chrome, Safari or Firefox
+
+    #impress
+      #start.step.slide
+        This is some awesome text for my boring slide.
+
     %script{src: 'js/impress.js'}
     :javascript
       impress().init();

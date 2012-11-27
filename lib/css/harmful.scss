@@ -40,6 +40,45 @@ body { pointer-events: none; }
 .step:not(.active) {
     opacity: 0.3;
 }
+
+#title {
+  font-size: 150px;
+  line-height: 1;
+
+  .not {
+    opacity: 0;
+
+    color: $red;
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform:    rotateX(-90deg);
+    -ms-transform:     rotateX(-90deg);
+    -o-transform:      rotateX(-90deg);
+    transform:         rotateX(-90deg);
+  }
+}
+
+#title.present{
+  .not {
+    opacity: 1;
+    -webkit-transform: rotateX(0deg);
+    -moz-transform:    rotate(0deg);
+    -ms-transform:     rotate(0deg);
+    -o-transform:      rotate(0deg);
+    transform:         rotate(0deg);
+  }
+}
+
+/* Make our title slide fully visible from the
+dummy title slide */
+.future[id='title'] {
+  opacity: 1.0;
+}
 .fallback-message {
   font-family: sans-serif;
   line-height: 1.3;

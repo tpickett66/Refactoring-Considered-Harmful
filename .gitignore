@@ -1,3 +1,6 @@
 index.html
 css/harmful.css
+css/clear.css
+css/solarized.css
 .sass-cache/*
+*.DS_Store

@@ -87,6 +87,22 @@ dummy title slide */
   font-size: 300px;
 }
 
+#wikipedia{
+  font-size: 24pt;
+  .title {
+    font-size: 150%;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+#wikipedia {
+  .note {
+    font-size: 18pt;
+    padding-left: 40px;
+  }
+}
+/* Only show the fallback message on older browers */
 .fallback-message {
   font-family: sans-serif;
   line-height: 1.3;

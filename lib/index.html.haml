@@ -43,6 +43,22 @@
 
       #what.step{"data-x"=>"1536", "data-y"=>"1024", "data-rotate"=>"90", "data-scale"=>"2"}
         What?
+      #wikipedia.step{"data-x"=>"1400", "data-y"=>1500, 'data-rotate'=>90, 'data-z'=>-2048}
+        .title Wikipedia
+        .text
+          %b Code refactoring
+          is a “disciplined technique for restructing and existing body of code,
+          altering its internal structure without changing its external
+          behavior”<sup>1</sup>, undertaken in order to improve some nonfunctional
+          attributes of the software. Advantages include improved code
+          readability and reduced complexity to improve the maintainability of
+          the source code, as well as a more expressive internal architecture or
+          object model to improve extensibility.
+        .note
+          %ol
+            %li
+              Martin Fowler
+              %a{:href => 'http://refactoring.com/'} refactoring.com
     %script{src: 'js/impress.js'}
     :javascript
       impress().init();

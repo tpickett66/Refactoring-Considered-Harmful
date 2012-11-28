@@ -67,10 +67,10 @@ body { pointer-events: none; }
   .not {
     opacity: 1;
     -webkit-transform: rotateX(0deg);
-    -moz-transform:    rotate(0deg);
-    -ms-transform:     rotate(0deg);
-    -o-transform:      rotate(0deg);
-    transform:         rotate(0deg);
+    -moz-transform:    rotateX(0deg);
+    -ms-transform:     rotateX(0deg);
+    -o-transform:      rotateX(0deg);
+    transform:         rotateX(0deg);
   }
 }
 

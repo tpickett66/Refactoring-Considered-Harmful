@@ -183,6 +183,16 @@ dummy title slide */
   font-size: 250px;
 }
 
+#conversation{
+  .quote {
+    font-size: 45px;
+  }
+  .attribution{
+    font-size: 35px;
+    font-weight: bold;
+  }
+}
+
 /* Only show the fallback message on older browers */
 .fallback-message {
   font-family: sans-serif;

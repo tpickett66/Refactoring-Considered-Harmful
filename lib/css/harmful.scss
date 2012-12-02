@@ -193,6 +193,13 @@ dummy title slide */
   }
 }
 
+#james {
+  text-align: left;
+  .name {
+    color: $blue;
+  }
+}
+
 /* Only show the fallback message on older browers */
 .fallback-message {
   font-family: sans-serif;

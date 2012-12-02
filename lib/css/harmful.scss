@@ -36,11 +36,9 @@ body { pointer-events: none; }
 }
 
 /* fade out inactive slides */
-/*
 .step:not(.active) {
     opacity: 0.1;
 }
-*/
 
 #title {
   font-size: 150px;

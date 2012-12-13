@@ -6,7 +6,7 @@ class EDIDigesterFactory
   end
 end
 
-module ISASegmentIdentifier
+class ISASegmentIdentifier
   attr_reader :file_contents
 
   def initialize(file_contents)

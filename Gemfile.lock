@@ -30,7 +30,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  coderay
   guard
   guard-haml
   guard-sass

@@ -6,3 +6,7 @@ gem 'guard'
 gem 'guard-haml'
 gem 'guard-sass'
 gem 'rb-fsevent'
+
+gem 'guard-minitest'
+gem 'minitest'
+gem 'turn'

@@ -1,0 +1,437 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* light is default mode, so pair with general html definition */
+html, .light {
+  background-color: #fdf6e3;
+  color: #657b83; }
+  html *, .light * {
+    color: #657b83; }
+  html h1, html h2, html h3, html h4, html h5, html h6, .light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+    color: #586e75;
+    border-color: #657b83; }
+  html a, html a:active, html a:visited, .light a, .light a:active, .light a:visited {
+    color: #586e75; }
+
+.dark {
+  background-color: #002b36;
+  color: #839496; }
+  .dark * {
+    color: #839496; }
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #93a1a1;
+    border-color: #839496; }
+  .dark a, .dark a:active, .dark a:visited {
+    color: #93a1a1; }
+
+html * {
+  color-profile: sRGB;
+  rendering-intent: auto; }
+
+/* My fonts...
+font-family: 'Average Sans', sans-serif;
+font-family: 'Montserrat Alternates', sans-serif;
+font-family: 'Strait', sans-serif;
+font-family: 'Montserrat', sans-serif;
+*/
+body {
+  pointer-events: none; }
+
+#impress {
+  pointer-events: auto; }
+
+/* Common Step Stylers */
+.step {
+  text-align: center;
+  width: 1024px;
+  padding: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 48px;
+  line-height: 1.5;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s; }
+
+/* fade out inactive slides */
+.step:not(.active) {
+  opacity: 0.1; }
+
+#title {
+  font-size: 150px;
+  line-height: 1; }
+  #title .not {
+    opacity: 0;
+    color: #dc322f;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    -ms-transform: rotateX(-90deg);
+    -o-transform: rotateX(-90deg);
+    transform: rotateX(-90deg); }
+
+#title.present .not {
+  opacity: 1;
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg); }
+
+/* Make our title slide fully visible from the
+dummy title slide */
+.future[id='title'] {
+  opacity: 1.0; }
+
+.section {
+  font-weight: bold; }
+
+#what {
+  padding-left: 20px;
+  font-size: 300px; }
+
+#wikipedia {
+  font-size: 24pt;
+  text-align: left; }
+  #wikipedia .title {
+    font-size: 150%;
+    text-align: center;
+    font-weight: bold; }
+  #wikipedia .note {
+    font-size: 18pt;
+    padding-left: 40px; }
+
+#blah {
+  font-size: 72px; }
+  #blah .second, #blah .third {
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s; }
+  #blah .second {
+    color: #cb4b16;
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    -ms-transform: rotateX(-90deg);
+    -o-transform: rotateX(-90deg);
+    transform: rotateX(-90deg); }
+  #blah .third {
+    color: #dc322f;
+    font-weight: bold;
+    font-size: 85px;
+    -webkit-transform: scale(0.01, 0.01);
+    -moz-transform: scale(0.01, 0.01);
+    -ms-transform: scale(0.01, 0.01);
+    -o-transform: scale(0.01, 0.01);
+    transform: scale(0.01, 0.01); }
+
+#blah.present .second {
+  opacity: 1;
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  -moz-transition-delay: 0.75s;
+  -webkit-transition-delay: 0.75s;
+  -o-transition-delay: 0.75s;
+  -ms-transition-delay: 0.75s;
+  transition-delay: 0.75s; }
+#blah.present .third {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -moz-transition-delay: 1.5s;
+  -webkit-transition-delay: 1.5s;
+  -o-transition-delay: 1.5s;
+  -ms-transition-delay: 1.5s;
+  transition-delay: 1.5s; }
+
+#suck-less {
+  text-align: center; }
+
+#why {
+  font-size: 250px; }
+
+#conversation .quote {
+  font-size: 45px; }
+#conversation .attribution {
+  font-size: 35px;
+  font-weight: bold; }
+
+#james {
+  text-align: left; }
+  #james .name {
+    color: #268bd2; }
+
+#who {
+  font-size: 300px; }
+
+#how {
+  font-size: 300px; }
+
+.code-example {
+  width: 974px;
+  height: 718px;
+  font-size: 14pt;
+  font-family: 'Droid Sans Mono', sans-serif;
+  text-align: left;
+  background-color: #002b36;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  /* Pygments CSS for solarized copied from
+  https://gist.github.com/1125708 */
+  /* Comment */
+  /* Error */
+  /* Generic */
+  /* Keyword */
+  /* Literal */
+  /* Name */
+  /* Operator */
+  /* Other */
+  /* Punctuation */
+  /* Comment.Multiline */
+  /* Comment.Preproc */
+  /* Comment.Single */
+  /* Comment.Special */
+  /* Generic.Deleted */
+  /* Generic.Emph */
+  /* Generic.Error */
+  /* Generic.Heading */
+  /* Generic.Inserted */
+  /* Generic.Output */
+  /* Generic.Prompt */
+  /* Generic.Strong */
+  /* Generic.Subheading */
+  /* Generic.Traceback */
+  /* Keyword.Constant */
+  /* Keyword.Declaration */
+  /* Keyword.Namespace */
+  /* Keyword.Pseudo */
+  /* Keyword.Reserved */
+  /* Keyword.Type */
+  /* Literal.Date */
+  /* Literal.Number */
+  /* Literal.String */
+  /* Name.Attribute */
+  /* Name.Builtin */
+  /* Name.Class */
+  /* Name.Constant */
+  /* Name.Decorator */
+  /* Name.Entity */
+  /* Name.Exception */
+  /* Name.Function */
+  /* Name.Label */
+  /* Name.Namespace */
+  /* Name.Other */
+  /* Name.Property */
+  /* Name.Tag */
+  /* Name.Variable */
+  /* Operator.Word */
+  /* Text.Whitespace */
+  /* Literal.Number.Float */
+  /* Literal.Number.Hex */
+  /* Literal.Number.Integer */
+  /* Literal.Number.Oct */
+  /* Literal.String.Backtick */
+  /* Literal.String.Char */
+  /* Literal.String.Doc */
+  /* Literal.String.Double */
+  /* Literal.String.Escape */
+  /* Literal.String.Heredoc */
+  /* Literal.String.Interpol */
+  /* Literal.String.Other */
+  /* Literal.String.Regex */
+  /* Literal.String.Single */
+  /* Literal.String.Symbol */
+  /* Name.Builtin.Pseudo */
+  /* Name.Variable.Class */
+  /* Name.Variable.Global */
+  /* Name.Variable.Instance */
+  /* Literal.Number.Integer.Long */ }
+  .code-example .hll {
+    background-color: #ffffcc; }
+  .code-example .c {
+    color: #586E75; }
+  .code-example .err {
+    color: #93A1A1; }
+  .code-example .g {
+    color: #93A1A1; }
+  .code-example .k {
+    color: #859900; }
+  .code-example .l {
+    color: #93A1A1; }
+  .code-example .n {
+    color: #93A1A1; }
+  .code-example .o {
+    color: #859900; }
+  .code-example .x {
+    color: #CB4B16; }
+  .code-example .p {
+    color: #93A1A1; }
+  .code-example .cm {
+    color: #586E75; }
+  .code-example .cp {
+    color: #859900; }
+  .code-example .c1 {
+    color: #586E75; }
+  .code-example .cs {
+    color: #859900; }
+  .code-example .gd {
+    color: #2AA198; }
+  .code-example .ge {
+    color: #93A1A1;
+    font-style: italic; }
+  .code-example .gr {
+    color: #DC322F; }
+  .code-example .gh {
+    color: #CB4B16; }
+  .code-example .gi {
+    color: #859900; }
+  .code-example .go {
+    color: #93A1A1; }
+  .code-example .gp {
+    color: #93A1A1; }
+  .code-example .gs {
+    color: #93A1A1;
+    font-weight: bold; }
+  .code-example .gu {
+    color: #CB4B16; }
+  .code-example .gt {
+    color: #93A1A1; }
+  .code-example .kc {
+    color: #CB4B16; }
+  .code-example .kd {
+    color: #268BD2; }
+  .code-example .kn {
+    color: #859900; }
+  .code-example .kp {
+    color: #859900; }
+  .code-example .kr {
+    color: #268BD2; }
+  .code-example .kt {
+    color: #DC322F; }
+  .code-example .ld {
+    color: #93A1A1; }
+  .code-example .m {
+    color: #2AA198; }
+  .code-example .s {
+    color: #2AA198; }
+  .code-example .na {
+    color: #93A1A1; }
+  .code-example .nb {
+    color: #B58900; }
+  .code-example .nc {
+    color: #268BD2; }
+  .code-example .no {
+    color: #CB4B16; }
+  .code-example .nd {
+    color: #268BD2; }
+  .code-example .ni {
+    color: #CB4B16; }
+  .code-example .ne {
+    color: #CB4B16; }
+  .code-example .nf {
+    color: #268BD2; }
+  .code-example .nl {
+    color: #93A1A1; }
+  .code-example .nn {
+    color: #93A1A1; }
+  .code-example .nx {
+    color: #93A1A1; }
+  .code-example .py {
+    color: #93A1A1; }
+  .code-example .nt {
+    color: #268BD2; }
+  .code-example .nv {
+    color: #268BD2; }
+  .code-example .ow {
+    color: #859900; }
+  .code-example .w {
+    color: #93A1A1; }
+  .code-example .mf {
+    color: #2AA198; }
+  .code-example .mh {
+    color: #2AA198; }
+  .code-example .mi {
+    color: #2AA198; }
+  .code-example .mo {
+    color: #2AA198; }
+  .code-example .sb {
+    color: #586E75; }
+  .code-example .sc {
+    color: #2AA198; }
+  .code-example .sd {
+    color: #93A1A1; }
+  .code-example .s2 {
+    color: #2AA198; }
+  .code-example .se {
+    color: #CB4B16; }
+  .code-example .sh {
+    color: #93A1A1; }
+  .code-example .si {
+    color: #2AA198; }
+  .code-example .sx {
+    color: #2AA198; }
+  .code-example .sr {
+    color: #DC322F; }
+  .code-example .s1 {
+    color: #2AA198; }
+  .code-example .ss {
+    color: #2AA198; }
+  .code-example .bp {
+    color: #268BD2; }
+  .code-example .vc {
+    color: #268BD2; }
+  .code-example .vg {
+    color: #268BD2; }
+  .code-example .vi {
+    color: #268BD2; }
+  .code-example .il {
+    color: #2AA198; }
+
+/* Only show the fallback message on older browers */
+.fallback-message {
+  font-family: sans-serif;
+  line-height: 1.3;
+  display: none; }
+
+.impress-not-supported .fallback-message {
+  display: block; }

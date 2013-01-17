@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <meta content='width=1024' name='viewport' />
+    <meta content='yes' name='apple-mobile-web-app-capable' />
+    <title>
+      Refactoring Considered Harmful
+    </title>
+    <meta content='A brief, interactive presentation on the evils of refactoring' name='description' />
+    <meta content='Tyler Pickett' name='author' />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates|Droid+Sans+Mono' rel='stylesheet' />
+    <link href='css/harmful.css' rel='stylesheet' />
+    <link href='favicon.png' rel='shortcut icon' />
+    <link href='apple-touch-icon.png' rel='apple-touch-icon' />
+  </head>
+  <body class='impress-not-supported'>
+    <div class='fallback-message'>
+      <p>
+        Your browser
+        <b>doesn't support all of the features required</b>
+        by impress.js, so you are presented with a simplified version of this presentation.
+      </p>
+      <p>
+        For the best experience please use the latest version of Chrome, Safari or Firefox
+      </p>
+    </div>
+    <div id='impress'>
+      <div class='step' data-scale='2' data-x='0' data-y='0' id='fake-title'></div>
+      <div class='step' data-scale='2' data-x='0' data-y='0' id='title'>
+        <div class='not'>
+          Not
+        </div>
+        Refactoring
+        <br />
+        Considered
+        <br />
+        Harmful
+      </div>
+      <div class='step' data-x='0' data-y='1024' id='whoami'>
+        Tyler Pickett
+        <br />
+        Twitter/Github: tpickett66
+      </div>
+      <div class='section step' data-rotate='90' data-scale='2' data-x='2000' data-y='1024' id='what'>
+        What?
+      </div>
+      <div class='step' data-rotate='90' data-x='2100' data-y='1500' data-z='-2100' id='wikipedia'>
+        <div class='title'>Wikipedia</div>
+        <div class='text'>
+          <b>Code refactoring</b>
+          is a "disciplined technique for restructing and existing body of code,
+          altering its internal structure without changing its external
+          behavior"<sup>1</sup>, undertaken in order to improve some nonfunctional
+          attributes of the software. Advantages include improved code
+          readability and reduced complexity to improve the maintainability of
+          the source code, as well as a more expressive internal architecture or
+          object model to improve extensibility.
+        </div>
+        <div class='note'>
+          <ol>
+            <li>
+              Martin Fowler
+              <a href='http://refactoring.com/'>refactoring.com</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class='step' data-rotate='120' data-x='1400' data-y='1800' data-z='-1400' id='blah'>
+        <div class='first'>blah</div>
+        <div class='second'>Blah!</div>
+        <div class='third'>BLAH!</div>
+      </div>
+      <div class='step' data-rotate='150' data-x='700' data-y='2100' data-z='-700' id='suck-less'>
+        TL;DR: Make your code suck less.
+      </div>
+      <div class='section step' data-rotate='180' data-scale='2' data-x='0' data-y='2400' id='why'>
+        Why?
+      </div>
+      <div class='step' data-rotate='180' data-x='0' data-y='2400' data-z='-2100' id='maintenance'>
+        Maintenance
+      </div>
+      <div class='step' data-rotate='210' data-x='-800' data-y='1600' data-z='-1400' id='conversation'>
+        <p class='quote'>"Code is a conversation with the reader"</p>
+        <p class='attribution'>Unknown</p>
+      </div>
+      <div class='step' data-rotate='240' data-x='-1600' data-y='800' data-z='-700' id='james'>
+        <div class='name'>jamescarr</div>
+        I just know that when I see a few hundred lines of
+        procedural hogwash with view and database logic in
+        the controller the author intended to tell me to go F myself
+      </div>
+      <div class='section step' data-rotate='270' data-scale='2' data-x='-2400' data-y='0' id='who'>
+        Who?
+      </div>
+      <div class='step' data-rotate='270' data-x='-2400' data-y='0' data-z='-2100' id='ruby'>
+        Ruby users?
+      </div>
+      <div class='step' data-rotate='300' data-x='-1600' data-y='-800' data-z='-1400' id='haskell'>
+        Haskell users?
+      </div>
+      <div class='step' data-rotate='330' data-x='-800' data-y='-1600' data-z='-700' id='designers'>
+        Designers?
+      </div>
+      <div class='section step' data-rotate='360' data-scale='2' data-x='0' data-y='-2400' id='how'>
+        How?
+      </div>
+      <div class='step code-example' data-x='0' data-y='-4000'>
+        <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">EDIDigesterFactory</span>
+  <span class="c1"># 60 lines of unintersting stuff</span>
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">find_isa_segments</span><span class="p">(</span><span class="n">file_contents</span><span class="p">)</span>
+    <span class="vi">@isa_indices</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+    <span class="n">delimeter</span> <span class="o">=</span> <span class="n">file_contents</span><span class="o">[</span><span class="mi">105</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span>
+    <span class="n">regex</span> <span class="o">=</span> <span class="sr">/[</span><span class="si">#{</span><span class="n">delimeter</span><span class="si">}</span><span class="sr">]?ISA([\*\|])0[0|3]\1.{10}\1[0][0|1]\1.{10}\1.{2}\1.{15}</span>
+<span class="sr">      \1.{2}\1.{15}\1\d{6}\1\d{4}\1.\1\d{5}\1.{9}\1[0|1]\1[P|T]\1.</span><span class="si">#{</span><span class="n">delimeter</span><span class="si">}</span><span class="sr">/x</span>
+    <span class="k">until</span> <span class="vi">@isa_indices</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">nil?</span>
+      <span class="n">found_index</span> <span class="o">=</span> <span class="n">file_contents</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span><span class="vi">@isa_indices</span><span class="o">.</span><span class="n">last</span> <span class="o">+</span> <span class="mi">105</span><span class="p">)</span>
+      <span class="n">found_index</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="o">!</span><span class="n">found_index</span><span class="o">.</span><span class="n">nil?</span> <span class="o">&amp;&amp;</span> <span class="n">file_contents</span><span class="o">[</span><span class="n">found_index</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span> <span class="o">!=</span> <span class="s2">&quot;I&quot;</span>
+      <span class="vi">@isa_indices</span> <span class="o">&lt;&lt;</span> <span class="n">found_index</span>
+    <span class="k">end</span>
+    <span class="vi">@envelopes_found</span> <span class="o">=</span> <span class="vi">@isa_indices</span><span class="o">.</span><span class="n">size</span>
+    <span class="vi">@isa_indices</span><span class="o">.</span><span class="n">compact!</span>
+  <span class="k">end</span>
+
+  <span class="c1"># 40 + more lines of more crap</span>
+<span class="k">end</span>
+</pre></div>
+</td></tr></table>
+      </div>
+      <div class='step code-example' data-x='1080' data-y='-4000'>
+        <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">EDIDigesterFactory</span>
+  <span class="k">def</span> <span class="nf">find_isa_segments</span><span class="p">(</span><span class="n">file_contents</span><span class="p">)</span>
+    <span class="k">return</span> <span class="vi">@_isa_indices</span> <span class="k">unless</span> <span class="vi">@_isa_indices</span><span class="o">.</span><span class="n">nil?</span>
+    <span class="n">identifier</span> <span class="o">=</span>  <span class="no">ISASegmentIdentifier</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">file_contents</span><span class="p">)</span>
+    <span class="vi">@_isa_indices</span> <span class="o">=</span> <span class="n">identifier</span><span class="o">.</span><span class="n">find_indices</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">ISASegmentIdentifier</span>
+  <span class="kp">attr_reader</span> <span class="ss">:file_contents</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">file_contents</span><span class="p">)</span>
+    <span class="vi">@file_contents</span> <span class="o">=</span> <span class="n">file_contents</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">find_indices</span>
+    <span class="c1"># big nasty method copied here...</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</td></tr></table>
+      </div>
+      <div class='step code-example' data-x='2160' data-y='-4000'>
+        <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">ISASegmentIdentifier</span>
+  <span class="kp">attr_reader</span> <span class="ss">:file_contents</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">file_contents</span><span class="p">);</span> <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">find_indices</span>
+    <span class="n">isa_indices</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+    <span class="n">delimeter</span> <span class="o">=</span> <span class="n">file_contents</span><span class="o">[</span><span class="mi">105</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span>
+    <span class="n">regex</span> <span class="o">=</span> <span class="sr">/[</span><span class="si">#{</span><span class="n">delimeter</span><span class="si">}</span><span class="sr">]?ISA([\*\|])0[0|3]\1.{10}\1[0][0|1]\1.{10}\1.{2}\1.{15}</span>
+<span class="sr">      \1.{2}\1.{15}\1\d{6}\1\d{4}\1.\1\d{5}\1.{9}\1[0|1]\1[P|T]\1.</span><span class="si">#{</span><span class="n">delimeter</span><span class="si">}</span><span class="sr">/x</span>
+    <span class="k">until</span> <span class="n">isa_indices</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">nil?</span>
+      <span class="n">found_index</span> <span class="o">=</span> <span class="n">file_contents</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span><span class="n">isa_indices</span><span class="o">.</span><span class="n">last</span> <span class="o">+</span> <span class="mi">105</span><span class="p">)</span>
+      <span class="n">found_index</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="o">!</span><span class="n">found_index</span><span class="o">.</span><span class="n">nil?</span> <span class="o">&amp;&amp;</span> <span class="n">file_contents</span><span class="o">[</span><span class="n">found_index</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span> <span class="o">!=</span> <span class="s2">&quot;I&quot;</span>
+      <span class="n">isa_indices</span> <span class="o">&lt;&lt;</span> <span class="n">found_index</span>
+    <span class="k">end</span>
+    <span class="n">isa_indices</span><span class="o">.</span><span class="n">compact</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</td></tr></table>
+      </div>
+    </div>
+    <script src='js/impress.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        impress().init();
+      //]]>
+    </script>
+  </body>
+</html>
